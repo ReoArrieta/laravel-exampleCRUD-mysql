@@ -3,7 +3,7 @@
 <section class="container">
     <div class="row">
         <article class="col-md-12">
-            <form action="" method="post" class="form-inline" novalidate>
+            <form action="{{url('movie/show')}}" method="get" class="form-inline" novalidate>
                 @csrf
                 <div class="form-group">
                     <label>Nombre</label>
@@ -21,6 +21,7 @@
             <table class="table table-condensed table-striped table-bordered">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Nombre</th>
                         <th>Descripción</th>
                         <th>Acción</th>
