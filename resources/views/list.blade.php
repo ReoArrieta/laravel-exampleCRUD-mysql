@@ -1,9 +1,14 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    div .btn{
+        margin-right: 1.5%;
+    }
+</style>
 <section class="container">
     <div class="row">
         <article class="col-md-12">
-            <form action="{{url('movie/show')}}" method="get" class="form-inline" novalidate>
+            <form action="{{url('movie/show')}}" method="get" novalidate>
                 @csrf
                 <div class="form-group">
                     <label>Nombre</label>
@@ -24,7 +29,8 @@
                         <th>#</th>
                         <th>Nombre</th>
                         <th>Descripción</th>
-                        <th>Acción</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,10 +41,12 @@
                         <td>{{$movie->description}}</td>
                         <td>
                             <a href="{{ url('movie/' . $movie->id . '/edit')}}" class="btn btn-primary btn-xs">✎ Editar</a>
+                        </td>
+                        <td>
                             <form action="{{url('movie/' . $movie->id)}}" method="post">
                                 @method('delete')
                                 @csrf
-                                <input type="submit" class="btn btn-link" value="🗑 Eliminar">
+                                <input type="submit" class="btn btn-danger" value="🗑 Eliminar">
                             </form>
                         </td>
                     </tr>
