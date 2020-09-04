@@ -9,7 +9,6 @@ class MovieController extends Controller
 {
     public function create()
     {
-        // return \View::make('movies/new');
         return view('new');
     }
     public function store(Request $request)
